@@ -1,0 +1,84 @@
+DS:
+
+optimized: less time or less space
+
+less time: Time complexity
+less space: Space Complexity
+
+assistance : suggestions
+
+Two types of DS:
+
+1. Linear DS
+Sequential
+- Array, Queues, Stack, Linked List
+
+2. Non- Linear DS
+Branching, Heirarchical
+- Trees, Graph
+
+1. Iteration
+2. Recursion
+
+Array - Searching
+
+- It is a collection of similar types of data / value.
+- It is also called a Homogeneous DS
+- It is a continuous Memory Allocation
+- It is easy to access because index number
+
+
+Searching: Operation
+
+1. Linear Search
+- 12, 16, 19, 27, 89, 112, 156
+
+search = 27
+
+2. Binary Search
+first = 0		      last = 7
+- 12, 15, 17, 19, 24, 29, 69, 90
+
+search = 69, 15
+
+Middle = (first + last)/2
+	= (0 + 7) / 2 = 3
+
+1. arr[middle] == search 
+	19 == 69 , false
+	29 == 69 , false
+	69 == 69 , true
+	15 == 15 , true
+
+
+2. arr[middle] < search (19 < 69), (29 < 69)
+	first = middle + 1 = 4, 5
+	
+	Middle = (first + last)/2
+		= (4 + 7) / 2 = 5, (5 + 7)/2 = 6
+
+3. arr[middle] > search (19 > 15)
+	last = middle - 1 = 2
+	
+	Middle = (first + last)/2 = (0 + 2) / 2 = 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
