@@ -17,10 +17,17 @@ void mergeSort(int arr[], int n)
             l2 = h1 + 1; // 1
             h2 = l2 + size - 1; // 1
 
+            if(h2 >= n)
+            {
+                h2 = n - 1;
+            }
+
             //merge two pairs
 
             i = l1;
             j = l2;
+
+            //temp[]: 11, 22
 
             while(i <= h1 && j <= h2)
             {
@@ -54,13 +61,13 @@ void mergeSort(int arr[], int n)
             temp[k++] = arr[i];
         }
 
-        for(i = 0 i < n; i++)
+        for(i = 0; i < n; i++)
         {
             arr[i] = temp[i];
         }
 
         printf("\nSize of %d elements are:\n", size);
-        for(i = 0 i < n; i++)
+        for(i = 0; i < n; i++)
         {
             printf("%d  ", arr[i]);
         }
