@@ -28,11 +28,11 @@ void insertNode()
 
     temp->link = NULL;
 
-    if(start == NULL)
+    if(start == NULL) // list is empty
     {
         start = temp;
     }
-    else {
+    else { // list is not empty
 
         t = start;
 
@@ -45,10 +45,111 @@ void insertNode()
     }
 }
 
+void deleteNode()
+{
+    struct node *t;
+
+    if(start == NULL)
+    {
+        printf("List is Empty");
+    }
+    else {
+        t = start;
+
+        start = start->link;
+
+        free(t); // delete first node
+    }
+}
+
+void searchList()
+{
+    struct node *t;
+    int search;
+
+    if(start != NULL)
+    {
+        t = start;
+
+        printf("Enter any value to be search:");
+        scanf("%d", &search);
+
+        while(t != NULL)
+        {
+            if(t->info == search)
+            {
+                printf("%d search value is found.", search);
+            }
+            t = t->link;
+        }
+    }
+    else
+    {
+        printf("List is Empty. Invalid Search");
+    }
+}
+
+void viewList()
+{
+    struct node *t;
+
+    if(start == NULL)
+    {
+        printf("List is Empty");
+    }
+    else {
+        t = start;
+
+        while(t != NULL)
+        {
+            printf("%d  ", t->info);
+            t = t->link;
+        }
+    }
+}
 
 
 int main()
 {
+    int choice;
+
+    while(1) // infinite loop
+    {
+        printf("\npress 1. Insert\n");
+        printf("\npress 2. Delete\n");
+        printf("\npress 3. Search\n");
+        printf("\npress 4. View\n");
+        printf("\npress 5. Exit\n");
+
+        printf("\n\nEnter your choice:");
+        scanf("%d", &choice);
+
+        switch(choice)
+        {
+        case 1:
+            insertNode();
+            break;
+
+        case 2:
+            deleteNode();
+            break;
+
+        case 3:
+            searchList();
+            break;
+
+        case 4:
+            viewList();
+            break;
+
+        case 5:
+            exit(0);
+
+        default:
+            printf("Invalid Choice");
+
+        }
+    }
 
     return 0;
 }
