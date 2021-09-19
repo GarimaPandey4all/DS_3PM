@@ -10,6 +10,34 @@ struct node {
 
 struct node *start = NULL;
 
+struct node *searchNode()
+{
+    struct node *temp;
+    int search;
+
+    if(start == NULL)
+    {
+        return NULL;
+    }
+    else {
+        printf("Enter any value to be search:");
+        scanf("%d", &search);
+
+        temp = start;
+
+        while(temp != NULL)
+        {
+            if(temp->info == search)
+            {
+                return temp;
+            }
+            temp = temp->next;
+        }
+
+        return NULL;
+    }
+};
+
 struct node *createNode()
 {
     struct  node *n;
@@ -112,7 +140,7 @@ void viewList()
 
         while(t != NULL)
         {
-            printf("%d", t->info);
+            printf("%d  ", t->info);
             t = t->next;
         }
     }
@@ -185,6 +213,60 @@ void deleteIntermediateNode()
 
 int main()
 {
+    int choice;
+
+    while(1) // infinite loop
+    {
+        printf("\npress 1. InsertAtFirst\n");
+        printf("\npress 2. InsertAtLast\n");
+        printf("\npress 3. Insert After Node\n");
+        printf("\npress 4. Delete First Node\n");
+        printf("\npress 5. Delete Last Node\n");
+        printf("\npress 6. Delete Intermediate Node\n");
+        printf("\npress 7. View List\n");
+        printf("\npress 8. Exit\n");
+
+        printf("\n\nEnter your choice:");
+        scanf("%d", &choice);
+
+        switch(choice)
+        {
+        case 1:
+            insertAtStart();
+            break;
+
+        case 2:
+            insertAtLast();
+            break;
+
+        case 3:
+            insertAfterNode();
+            break;
+
+        case 4:
+            deleteFirstNode();
+            break;
+
+        case 5:
+            deleteLastNode();
+            break;
+
+        case 6:
+            deleteIntermediateNode();
+            break;
+
+        case 7:
+            viewList();
+            break;
+
+        case 8:
+            exit(0);
+
+        default:
+            printf("Invalid Choice");
+
+        }
+    }
 
     return 0;
 }
