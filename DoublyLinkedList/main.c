@@ -97,10 +97,90 @@ void insertAfterNode()
 
         ptr->next = temp;
     }
+}
 
+void viewList()
+{
+    struct node *t;
 
+    if(start == NULL)
+    {
+        printf("List is Empty");
+    }
+    else {
+        t = start;
 
+        while(t != NULL)
+        {
+            printf("%d", t->info);
+            t = t->next;
+        }
+    }
+}
 
+void deleteFirstNode()
+{
+    struct node *t;
+
+    if(start == NULL)
+    {
+        printf("List is Empty");
+    }
+    else {
+        t = start;
+
+        start = start->next;
+        start->prev = NULL;
+
+        free(t);
+    }
+}
+
+void deleteLastNode()
+{
+    struct node *t;
+
+    if(start == NULL)
+    {
+        printf("List is Empty");
+    }
+    else {
+        t = start;
+
+        while(t->next != NULL)
+        {
+            t = t->next;
+        }
+
+        if(start->next == NULL)
+        {
+            start = NULL;
+        }
+        else {
+            t->prev->next = NULL;
+        }
+    }
+}
+
+void deleteIntermediateNode()
+{
+    struct node *ptr;
+
+    ptr = searchNode();
+
+    if(ptr == NULL)
+    {
+        printf("Invalid Search. List is Empty");
+    }
+    else if(ptr->prev == NULL || ptr->next == NULL){
+        printf("Invalid Deletion");
+    }
+    else {
+        ptr->prev->next = ptr->next;
+        ptr->next->prev = ptr->prev;
+
+        free(ptr);
+    }
 }
 
 int main()
